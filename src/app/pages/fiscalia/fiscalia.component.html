@@ -1,0 +1,21 @@
+<mat-list class="mat-list">
+  <mat-list-item>Nombre: {{ fiscalia.directoryName }}</mat-list-item>
+  <mat-divider></mat-divider>
+  <mat-list-item
+    >Direccion {{ fiscalia.addressLine }}, zona
+    {{ fiscalia.zone }}</mat-list-item
+  >
+  <mat-divider></mat-divider>
+  <mat-list-item
+    >Ubicacion: departamento {{ fiscalia.city }}, municipio
+    {{ fiscalia.state }}, pais {{ fiscalia.city }}
+  </mat-list-item>
+  <mat-divider></mat-divider>
+  <mat-list-item
+    >Telefonos: Celular {{ fiscalia.phone }}, Fax
+    {{ fiscalia.phone2 }}
+  </mat-list-item>
+</mat-list>
+
+<button mat-raised-button color="primary">Editar</button>
+<a mat-raised-button [routerLink]="['/']">Home</a>

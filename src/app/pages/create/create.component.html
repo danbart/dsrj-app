@@ -1,0 +1,97 @@
+<form [formGroup]="formFiscalia">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Nombre de Fiscalia</label>
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Nombre de Fiscalia"
+      formControlName="fiscaliaName"
+      [(ngModel)]="fiscaliaClass.directoryName"
+    />
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Direccion</label>
+    <input
+      type="text"
+      class="form-control"
+      id="exampleInputEmail1"
+      aria-describedby="emailHelp"
+      placeholder="Direccion"
+      formControlName="addresLine"
+      [(ngModel)]="fiscaliaClass.addressLine"
+    />
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Zona</label>
+    <input
+      type="text"
+      class="form-control"
+      id="exampleInputEmail1"
+      aria-describedby="emailHelp"
+      placeholder="Zona"
+      formControlName="zone"
+      [(ngModel)]="fiscaliaClass.zone"
+    />
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Ciudad</label>
+    <input
+      type="text"
+      class="form-control"
+      id="exampleInputEmail1"
+      aria-describedby="emailHelp"
+      placeholder="Ciudad"
+      formControlName="city"
+      [(ngModel)]="fiscaliaClass.city"
+    />
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Municipio</label>
+    <input
+      type="text"
+      class="form-control"
+      id="exampleInputEmail1"
+      aria-describedby="emailHelp"
+      placeholder="Municipio"
+      formControlName="state"
+      [(ngModel)]="fiscaliaClass.state"
+    />
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Pais</label>
+    <input
+      type="text"
+      class="form-control"
+      id="exampleInputEmail1"
+      aria-describedby="emailHelp"
+      placeholder="Pais"
+      formControlName="country"
+      [(ngModel)]="fiscaliaClass.country"
+    />
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Celular</label>
+    <input
+      type="text"
+      class="form-control"
+      id="exampleInputEmail1"
+      aria-describedby="emailHelp"
+      placeholder="Celular"
+      formControlName="phone"
+      [(ngModel)]="fiscaliaClass.phone"
+    />
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Fax</label>
+    <input
+      type="text"
+      class="form-control"
+      id="exampleInputEmail1"
+      aria-describedby="emailHelp"
+      placeholder="Fax"
+      formControlName="phone2"
+      [(ngModel)]="fiscaliaClass.phone2"
+    />
+  </div>
+  <button mat-raised-button color="primary" (click)="save()">Guardar</button>
+</form>
