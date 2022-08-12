@@ -1,3 +1,13 @@
 .mat-list{
     background-color: rgb(73, 73, 87);
+    margin: 40px;
+}
+.buttons{
+    margin: 40px;
+}
+.buttons button{
+    margin: 10px;
+}
+.buttons a{
+    margin: 10px;
 }
