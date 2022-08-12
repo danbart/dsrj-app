@@ -1,97 +1,85 @@
 <form [formGroup]="formFiscalia">
-  <div class="form-group">
-    <label for="exampleInputEmail1">Nombre de Fiscalia</label>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label for="fiscaliaName">Nombre de Fiscalia</mat-label>
     <input
       type="text"
-      class="form-control"
-      placeholder="Nombre de Fiscalia"
+      matInput
       formControlName="fiscaliaName"
       [(ngModel)]="fiscaliaClass.directoryName"
     />
-  </div>
-  <div class="form-group">
-    <label for="exampleInputEmail1">Direccion</label>
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label for="addresLine">Direccion</mat-label>
     <input
       type="text"
-      class="form-control"
-      id="exampleInputEmail1"
-      aria-describedby="emailHelp"
-      placeholder="Direccion"
+      matInput
       formControlName="addresLine"
       [(ngModel)]="fiscaliaClass.addressLine"
     />
-  </div>
-  <div class="form-group">
-    <label for="exampleInputEmail1">Zona</label>
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label for="zone">Zona</mat-label>
     <input
       type="text"
-      class="form-control"
-      id="exampleInputEmail1"
-      aria-describedby="emailHelp"
-      placeholder="Zona"
+      matInput
       formControlName="zone"
       [(ngModel)]="fiscaliaClass.zone"
     />
-  </div>
-  <div class="form-group">
-    <label for="exampleInputEmail1">Ciudad</label>
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label for="city">Ciudad</mat-label>
     <input
       type="text"
-      class="form-control"
-      id="exampleInputEmail1"
-      aria-describedby="emailHelp"
-      placeholder="Ciudad"
+      matInput
       formControlName="city"
       [(ngModel)]="fiscaliaClass.city"
     />
-  </div>
-  <div class="form-group">
-    <label for="exampleInputEmail1">Municipio</label>
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label for="state">Municipio</mat-label>
     <input
       type="text"
-      class="form-control"
-      id="exampleInputEmail1"
-      aria-describedby="emailHelp"
-      placeholder="Municipio"
+      matInput
       formControlName="state"
       [(ngModel)]="fiscaliaClass.state"
     />
-  </div>
-  <div class="form-group">
-    <label for="exampleInputEmail1">Pais</label>
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label for="country">Pais</mat-label>
     <input
       type="text"
-      class="form-control"
-      id="exampleInputEmail1"
-      aria-describedby="emailHelp"
-      placeholder="Pais"
+      matInput
       formControlName="country"
       [(ngModel)]="fiscaliaClass.country"
     />
-  </div>
-  <div class="form-group">
-    <label for="exampleInputEmail1">Celular</label>
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label for="phone">Celular</mat-label>
     <input
-      type="text"
-      class="form-control"
-      id="exampleInputEmail1"
-      aria-describedby="emailHelp"
-      placeholder="Celular"
+      type="number"
+      matInput
       formControlName="phone"
       [(ngModel)]="fiscaliaClass.phone"
     />
-  </div>
-  <div class="form-group">
-    <label for="exampleInputEmail1">Fax</label>
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label for="phone2">Fax</mat-label>
     <input
-      type="text"
-      class="form-control"
-      id="exampleInputEmail1"
-      aria-describedby="emailHelp"
-      placeholder="Fax"
+      type="number"
+      matInput
       formControlName="phone2"
       [(ngModel)]="fiscaliaClass.phone2"
     />
-  </div>
-  <button mat-raised-button color="primary" (click)="save()">Guardar</button>
+  </mat-form-field>
+  <button *ngIf="!isUpdate" mat-raised-button color="primary" (click)="save()">
+    Guardar
+  </button>
+  <button
+    *ngIf="isUpdate"
+    mat-raised-button
+    color="accent"
+    (click)="update(fiscaliaClass.directoryId)"
+  >
+    Actualizar
+  </button>
 </form>

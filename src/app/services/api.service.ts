@@ -35,6 +35,18 @@ export class ApiService {
     return this.http.post(url, data, { params }).toPromise();
   }
 
+  putMethod(endPoint: string, data: any, prms?: any) {
+    let params = new HttpParams();
+    if (prms) {
+      const keyParams = Object.keys(prms);
+      for (const p of keyParams) {
+        params = params.append(p, prms[p]);
+      }
+    }
+    const url = this.URL_HOST + endPoint;
+    return this.http.put(url, data, { params }).toPromise();
+  }
+
   getFiscalias(): Promise<Fiscalia[]> {
     return new Promise((resolve, reject) => {
       this.getMethod('/directory')
@@ -56,7 +68,7 @@ export class ApiService {
           resolve(fiscalias);
         })
         .catch((err) => {
-          reject('Error al recibir el listado');
+          reject('Error al recibir registro');
         });
     });
   }
@@ -69,7 +81,20 @@ export class ApiService {
           resolve(fiscalias);
         })
         .catch((err) => {
-          reject('Error al recibir el listado');
+          reject('Error al crear el registro');
+        });
+    });
+  }
+
+  putFiscalia(id: number, data: Fiscalia): Promise<Fiscalia> {
+    return new Promise((resolve, reject) => {
+      this.putMethod(`/directory/${id}`, data)
+        .then((res) => {
+          let fiscalias = res as Fiscalia;
+          resolve(fiscalias);
+        })
+        .catch((err) => {
+          reject('Error al actualizar el registro');
         });
     });
   }

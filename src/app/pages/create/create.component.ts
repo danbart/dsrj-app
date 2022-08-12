@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import Fiscalia from 'src/app/interfaces/fiscalia';
 import { ApiService } from '../../services/api.service';
 import { FiscaliaClass } from './fiscaliaModel';
 
@@ -10,15 +11,21 @@ import { FiscaliaClass } from './fiscaliaModel';
   styleUrls: ['./create.component.css'],
 })
 export class CreateComponent implements OnInit {
+  isUpdate = false;
   formFiscalia = {} as FormGroup;
   fiscaliaClass = new FiscaliaClass();
 
   constructor(
     public dialogRef: MatDialogRef<CreateComponent>,
     public fb: FormBuilder,
-    @Inject(MAT_DIALOG_DATA) data: any,
+    @Inject(MAT_DIALOG_DATA) data: Fiscalia,
     public apiService: ApiService
-  ) {}
+  ) {
+    if (data != null) {
+      this.fiscaliaClass = data;
+      this.isUpdate = true;
+    }
+  }
 
   ngOnInit(): void {
     this.functionForm();
@@ -38,8 +45,16 @@ export class CreateComponent implements OnInit {
   }
 
   save() {
-    this.apiService
-      .postFiscalia(this.fiscaliaClass)
-      .then((res) => console.log(res));
+    this.apiService.postFiscalia(this.fiscaliaClass).then((res) => {
+      console.log(res);
+      this.dialogRef.close();
+    });
+  }
+
+  update(id: number) {
+    this.apiService.putFiscalia(id, this.fiscaliaClass).then((res) => {
+      console.log(res);
+      this.dialogRef.close();
+    });
   }
 }
