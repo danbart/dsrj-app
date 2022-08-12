@@ -30,8 +30,8 @@ export class ApiService {
         params = params.append(p, prms[p]);
       }
     }
-    // const url = this.URL_HOST + endPoint;
-    const url = '/api';
+    const url = this.URL_HOST + endPoint;
+    // const url = '/api';
     return this.http.post(url, data, { params }).toPromise();
   }
 
@@ -75,7 +75,7 @@ export class ApiService {
 
   postFiscalia(data: Fiscalia): Promise<Fiscalia> {
     return new Promise((resolve, reject) => {
-      this.postMethod(`/directory/`, data)
+      this.postMethod(`/directory`, data)
         .then((res) => {
           let fiscalias = res as Fiscalia;
           resolve(fiscalias);
